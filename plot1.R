@@ -6,17 +6,19 @@ data <- read.csv2(file = "household_power_consumption.txt", header = TRUE, sep =
 
 # coerce Date to date object
 data$Date <- dmy(data$Date)
+# create dateTime variable
+data$dateTime <- paste(data$Date, data$Time, sep = " ")
+data$dateTime <- strptime(data$dateTime, format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
+
 
 # create df with necessary data only: 2007-02-01 and 2007-02-02
-dateStart <- as.POSIXct("2007-02-01")
-dateEnd <- as.POSIXct("2007-02-02")
+dateStart <- as.POSIXct("2007-02-01 00:00:00")
+dateEnd <- as.POSIXct("2007-02-02 23:59:59")
 int <- new_interval(dateStart, dateEnd) # interval of interest
 df <- data[data$Date %within% int,]
 
 # coerce other variables to appropirate data types
 df1 <- df
-df1$dateTime <- paste(df$Date, df$Time, sep = " ")
-df1$dateTime <- strptime(df1$dateTime, format = "%Y-%m-%d %H:%M:%S", tz = "GMT")
 
 df1$Global_active_power <- as.numeric(df1$Global_active_power)
 df1$Global_reactive_power <- as.numeric(df1$Global_reactive_power)
@@ -31,6 +33,6 @@ df1$Sub_metering_3 <- as.numeric(df1$Sub_metering_3)
 # plot1
 png(filename = "plot1.png", width = 480, height = 480, units = "px")
 
-hist(df1$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)")
+hist(df1$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
 
 dev.off()
