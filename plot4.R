@@ -31,7 +31,7 @@ df1$Sub_metering_3 <- as.numeric(df1$Sub_metering_3)
 # PLOTTING
 
 # plot4
-par(mfrow = c(2, 2), mar = c(2, 2, 2, 2)) #mar = c(5, 4, 2, 1)
+par(mfrow = c(2, 2), mar = c(5, 3, 3, 3)) #mar = c(5, 4, 2, 1)
 
 #4.1
 with(df1, plot(dateTime, Global_active_power, xlab = "", type = "l", ylab = "Global Active Power"))
