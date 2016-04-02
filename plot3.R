@@ -36,7 +36,7 @@ with(df1, plot(dateTime, Sub_metering_1, type = "l", xlab = "", ylab = "Energy s
 lines(df1$dateTime, df1$Sub_metering_2, type = "l", col = "red")
 lines(df1$dateTime, df1$Sub_metering_3, type = "l", col = "blue")
 
-legend("topright", lty = 1, legend = colnames(df1[7:9]), col = c("black", "red", "blue"), y.intersp = 1.5)
+legend("topright", lty = 1, legend = colnames(df1[7:9]), col = c("black", "red", "blue"), , y.intersp = 1.5, inset = 0.00)
 
 dev.copy(png, "plot3.png", width = 480, height = 480)
 dev.off()
