@@ -32,7 +32,7 @@ df1$Sub_metering_3 <- as.numeric(df1$Sub_metering_3)
 
 # plot2
 
-with(df1, plot(dateTime, Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)"))
+with(df1, plot(dateTime, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 
 dev.copy(png, "plot2.png")
 dev.off()
