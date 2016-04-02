@@ -35,4 +35,4 @@ df1$Sub_metering_3 <- as.numeric(df1$Sub_metering_3)
 with(df1, plot(dateTime, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)"))
 
 dev.copy(png, "plot2.png", width = 480, height = 480)
-dev.off()
+dev.off( )
