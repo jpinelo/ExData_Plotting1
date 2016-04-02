@@ -30,13 +30,14 @@ df1$Sub_metering_3 <- as.numeric(df1$Sub_metering_3)
 
 # PLOTTING
 
-# plot2
+# plot3
 
-with(df1, plot(dateTime, c(Sub_metering_1), type = "l", ylab = "Energy sub metering"))
-lines(df1$Sub_metering_2, type = "l", col = "red")
+with(df1, plot(dateTime, Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering"))
+lines(df1$dateTime, df1$Sub_metering_2, type = "l", col = "red")
+lines(df1$dateTime, df1$Sub_metering_3, type = "l", col = "blue")
 
-legend("topright", x = c(,,), y = c(,,), legend = colnames(df1[7:9]), col = c("black", "red", "blue"))
+legend("topright", lty = 1, legend = colnames(df1[7:9]), col = c("black", "red", "blue"))
 
-
-dev.copy(png, "plot2.png")
+dev.copy(png, "plot3.png")
 dev.off()
+
