@@ -38,6 +38,6 @@ lines(df1$dateTime, df1$Sub_metering_3, type = "l", col = "blue")
 
 legend("topright", lty = 1, legend = colnames(df1[7:9]), col = c("black", "red", "blue"), y.intersp = 1.5)
 
-dev.copy(png, "plot3.png")
+dev.copy(png, "plot3.png", width = 480, height = 480)
 dev.off()
 
